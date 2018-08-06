@@ -5,5 +5,6 @@ RUN apk add --update \
     python-dev \
     py-pip \
     ca-certificates \
-    openssl \
-    && update-ca-certificates
+    openssl && \
+    update-ca-certificates && \
+    pip install --upgrade pip

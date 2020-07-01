@@ -39,4 +39,4 @@ RUN cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
 
 USER root
 
-RUN npm i --global cross-env mirror-config-china --unsafe-perm=true --allow-root
+RUN npm i --global cross-env node-sass

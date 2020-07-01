@@ -1,7 +1,7 @@
 FROM node:14-alpine3.12
 
 RUN apk update && apk upgrade && \
-    apk add --no-cache \
+    apk add --update --no-cache \
     bash \
     openssh-client \
     wget \

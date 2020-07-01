@@ -1,7 +1,6 @@
 FROM node:14-alpine3.12
 
-RUN apk update && apk upgrade && \
-    apk add --update --no-cache \
+RUN apk add --update --no-cache \
     bash \
     openssh-client \
     wget \
@@ -9,8 +8,8 @@ RUN apk update && apk upgrade && \
     openssl \
     libcurl \
     git \
-    python \
-    python-dev \
+    python3 \
+    python3-dev \
     py-pip \
     augeas-dev \
     libressl-dev \

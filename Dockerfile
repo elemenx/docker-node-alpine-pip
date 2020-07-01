@@ -8,8 +8,8 @@ RUN apk add --update --no-cache \
     openssl \
     libcurl \
     git \
-    python3 \
-    python3-dev \
+    python2 \
+    python2-dev \
     py-pip \
     augeas-dev \
     libressl-dev \
@@ -39,4 +39,4 @@ RUN cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
 
 USER root
 
-RUN npm i --global cross-env node-sass
+RUN npm i --global cross-env node-sass --unsafe-perm=true --allow-root

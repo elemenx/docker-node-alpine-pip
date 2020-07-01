@@ -1,14 +1,43 @@
 FROM node:14-alpine3.12
 
-RUN echo 'http://mirrors.bfsu.edu.cn/alpine/v3.12/main' > /etc/apk/repositories && \
-    echo 'http://mirrors.bfsu.edu.cn/alpine/v3.12/community' >>/etc/apk/repositories && \
-    apk update && apk upgrade && \
-    apk --no-cache add \
+RUN apk update && apk upgrade && \
+    apk add --no-cache \
+    bash \
+    openssh-client \
+    wget \
+    curl \
+    openssl \
+    libcurl \
     git \
     python \
     python-dev \
     py-pip \
+    augeas-dev \
+    libressl-dev \
     ca-certificates \
-    openssl && \
-    update-ca-certificates && \
-    pip install --upgrade pip
+    dialog \
+    autoconf \
+    make \
+    g++ \
+    gcc \
+    zlib \
+    tzdata \
+    musl-dev \
+    linux-headers \
+    libmcrypt-dev \
+    libpng-dev \
+    icu-dev \
+    libpq \
+    libxslt-dev \
+    libffi-dev \
+    freetype-dev \
+    sqlite-dev \
+    libjpeg-turbo-dev
+
+# set China timezone
+RUN cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
+    echo 'Asia/Shanghai' > /etc/timezone
+
+USER root
+
+RUN npm i --global cross-env mirror-config-china --unsafe-perm=true --allow-root
